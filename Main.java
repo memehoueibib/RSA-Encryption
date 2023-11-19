@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
-public class Main {
+public class Test3 {
     private final static SecureRandom random = new SecureRandom();
     private static BigInteger p; // Prime number p
     private static BigInteger q; // Prime number q
@@ -15,7 +15,7 @@ public class Main {
     private static BigInteger e; // Public exponent
     private static BigInteger d; // Private exponent
 
-    // Déclaration des JTextAreas comme variables de classe
+    // Declaration of JTextAreas as class variables
     private static JTextArea outputP;
     private static JTextArea outputQ;
     private static JTextArea outputN;
@@ -31,14 +31,14 @@ public class Main {
         frame.setSize(1350, 700);
         frame.getContentPane().setBackground(new Color(30, 30, 30)); // Set the background color
 
-        // Interface Elements Styling
+        // Styling Interface Elements
         JTextField inputField = new JTextField(20);
         inputField.setBackground(Color.LIGHT_GRAY);
         inputField.setFont(new Font("Arial", Font.PLAIN, 18));
         inputField.setForeground(Color.BLACK);
         inputField.setBorder(BorderFactory.createLineBorder(new Color(100, 100, 100)));
 
-        // Initialisation des JTextAreas
+        // Initializing JTextAreas
         outputP = createStyledOutputArea("Prime p");
         outputQ = createStyledOutputArea("Prime q");
         outputN = createStyledOutputArea("Modulus n");
@@ -54,12 +54,12 @@ public class Main {
         JButton decryptButton = styleButton("Decrypt");
         JButton clearButton = styleButton("Clear");
 
-        // Titre au-dessus de l'inputField
+        // Title above the inputField
         JLabel titleLabel = new JLabel("Please insert your message");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         titleLabel.setForeground(Color.WHITE);
 
-        // Regroupement des JTextAreas dans un seul JPanel
+        // Grouping JTextAreas in a single JPanel
         JPanel keyInfoPanel = new JPanel();
         keyInfoPanel.setLayout(new BoxLayout(keyInfoPanel, BoxLayout.Y_AXIS));
         keyInfoPanel.setBackground(new Color(30, 30, 30));
@@ -69,7 +69,7 @@ public class Main {
         keyInfoPanel.add(new JScrollPane(outputE));
         keyInfoPanel.add(new JScrollPane(outputD));
 
-        // Regroupement des JTextAreas pour les messages cryptés et décryptés
+        // Grouping JTextAreas for encrypted and decrypted messages
         JPanel messagePanel = new JPanel();
         messagePanel.setLayout(new BoxLayout(messagePanel, BoxLayout.Y_AXIS));
         messagePanel.setBackground(new Color(30, 30, 30));
@@ -129,8 +129,8 @@ public class Main {
         panel.setBackground(new Color(30, 30, 30));
         panel.add(titleLabel, BorderLayout.PAGE_START);
         panel.add(inputField, BorderLayout.CENTER);
-        panel.add(keyInfoPanel, BorderLayout.LINE_START); // Ajout du panel avec les clés
-        panel.add(messagePanel, BorderLayout.LINE_END); // Ajout du panel pour les messages cryptés et décryptés
+        panel.add(keyInfoPanel, BorderLayout.LINE_START);  // Adding the panel with keys
+        panel.add(messagePanel, BorderLayout.LINE_END);  // Adding the panel for encrypted and decrypted messages
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(new Color(30, 30, 30));
@@ -141,7 +141,7 @@ public class Main {
 
         frame.getContentPane().add(panel);
 
-        //frame.pack(); // Ajuste la taille de la fenêtre en fonction des composants
+        //frame.pack();  // Adjust the window size based on the components
         frame.setVisible(true);
     }
 
