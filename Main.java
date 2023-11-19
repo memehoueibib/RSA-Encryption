@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
-public class Test3 {
+public class Main {
     private final static SecureRandom random = new SecureRandom();
     private static BigInteger p; // Prime number p
     private static BigInteger q; // Prime number q
