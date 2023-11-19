@@ -15,7 +15,7 @@ public class Main {
     private static BigInteger e; // Public exponent
     private static BigInteger d; // Private exponent
 
-    // Declaration of JTextAreas as class variables
+    // Déclaration des JTextAreas comme variables de classe
     private static JTextArea outputP;
     private static JTextArea outputQ;
     private static JTextArea outputN;
@@ -38,7 +38,7 @@ public class Main {
         inputField.setForeground(Color.BLACK);
         inputField.setBorder(BorderFactory.createLineBorder(new Color(100, 100, 100)));
 
-        // Initialization of JTextAreas
+        // Initialisation des JTextAreas
         outputP = createStyledOutputArea("Prime p");
         outputQ = createStyledOutputArea("Prime q");
         outputN = createStyledOutputArea("Modulus n");
@@ -54,12 +54,12 @@ public class Main {
         JButton decryptButton = styleButton("Decrypt");
         JButton clearButton = styleButton("Clear");
 
-        // Title above the inputField
+        // Titre au-dessus de l'inputField
         JLabel titleLabel = new JLabel("Please insert your message");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         titleLabel.setForeground(Color.WHITE);
 
-        // Grouping JTextAreas into a single JPanel
+        // Regroupement des JTextAreas dans un seul JPanel
         JPanel keyInfoPanel = new JPanel();
         keyInfoPanel.setLayout(new BoxLayout(keyInfoPanel, BoxLayout.Y_AXIS));
         keyInfoPanel.setBackground(new Color(30, 30, 30));
@@ -69,7 +69,7 @@ public class Main {
         keyInfoPanel.add(new JScrollPane(outputE));
         keyInfoPanel.add(new JScrollPane(outputD));
 
-        // Grouping JTextAreas for encrypted and decrypted messages
+        // Regroupement des JTextAreas pour les messages cryptés et décryptés
         JPanel messagePanel = new JPanel();
         messagePanel.setLayout(new BoxLayout(messagePanel, BoxLayout.Y_AXIS));
         messagePanel.setBackground(new Color(30, 30, 30));
@@ -114,11 +114,12 @@ public class Main {
             }
         });
 
+        
         // Clear Button Action
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clearOutputs(outputP, outputQ, outputN, outputE, outputD, outputEncrypted, outputDecrypted);
+                clearSpecificOutputs(inputField, outputEncrypted, outputDecrypted);
             }
         });
 
@@ -128,8 +129,8 @@ public class Main {
         panel.setBackground(new Color(30, 30, 30));
         panel.add(titleLabel, BorderLayout.PAGE_START);
         panel.add(inputField, BorderLayout.CENTER);
-        panel.add(keyInfoPanel, BorderLayout.LINE_START); // Added the panel with the keys
-        panel.add(messagePanel, BorderLayout.LINE_END); // Added panel for encrypted and decrypted messages
+        panel.add(keyInfoPanel, BorderLayout.LINE_START); // Ajout du panel avec les clés
+        panel.add(messagePanel, BorderLayout.LINE_END); // Ajout du panel pour les messages cryptés et décryptés
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(new Color(30, 30, 30));
@@ -140,7 +141,7 @@ public class Main {
 
         frame.getContentPane().add(panel);
 
-        //frame.pack(); // Adjust window size based on components
+        //frame.pack(); // Ajuste la taille de la fenêtre en fonction des composants
         frame.setVisible(true);
     }
 
@@ -166,12 +167,15 @@ public class Main {
         return button;
     }
 
-    // Helper method to clear output areas
-    private static void clearOutputs(JTextArea... outputs) {
-        for (JTextArea output : outputs) {
-            output.setText("");
+
+    // Helper method to clear specific output areas for JTextArea and JTextField
+    private static void clearSpecificOutputs(JTextField textField, JTextArea... textAreas) {
+        textField.setText("");
+        for (JTextArea textArea : textAreas) {
+            textArea.setText("");
         }
     }
+
 
     // Method to Generate a Pair of RSA Keys
     private static void generateKeyPair() {
