@@ -2,6 +2,9 @@
 
 Welcome to our RSA Encryption project! This repository contains the Java implementation of the RSA encryption and decryption algorithm, designed as a practical application to demonstrate cryptographic principles and secure data transmission.
 
+## RSA Encryption interface
+![RSA Encryption Interface](https://github.com/memehoueibib/RSA-Encryption/blob/main/secreen%20of%20rsa.png)
+
 ## About The Project
 Our project utilizes Java Swing for the graphical user interface and Java’s cryptography libraries for the RSA encryption logic. The key features of this project include generating RSA key pairs, encrypting and decrypting messages, and presenting an intuitive GUI for user interaction.
 
