@@ -132,12 +132,20 @@ public class Main {
         panel.add(keyInfoPanel, BorderLayout.LINE_START);  // Adding the panel with keys
         panel.add(messagePanel, BorderLayout.LINE_END);  // Adding the panel for encrypted and decrypted messages
 
+        // Initialize the panel for buttons
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(new Color(30, 30, 30));
+        
+        // Set the background color of the button panel
+        buttonPanel.setBackground(new Color(30, 30, 30)); // dark gray color
+        
+        // Add buttons to the button panel
         buttonPanel.add(encryptButton);
         buttonPanel.add(decryptButton);
         buttonPanel.add(clearButton);
+        
+        // Add the button panel to the bottom of the main panel
         panel.add(buttonPanel, BorderLayout.PAGE_END);
+
 
         frame.getContentPane().add(panel);
 
