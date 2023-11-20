@@ -141,7 +141,7 @@ public class Main {
 
         frame.getContentPane().add(panel);
 
-        //frame.pack();  // Adjust the window size based on the components
+        
         frame.setVisible(true);
     }
 
